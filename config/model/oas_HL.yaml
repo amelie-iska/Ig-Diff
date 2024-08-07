@@ -1,0 +1,23 @@
+node_embed_size: 256
+edge_embed_size: 128
+use_chain_embedding: True
+dropout: 0.0
+embed:
+  index_embed_size: 32
+  aatype_embed_size: 64
+  embed_self_conditioning: True
+  num_bins: 22
+  min_bin: 1e-5
+  max_bin: 20.0
+ipa:
+  c_s: ${model.node_embed_size}
+  c_z: ${model.edge_embed_size}
+  c_hidden: 256
+  c_skip: 64
+  no_heads: 8
+  no_qk_points: 8
+  no_v_points: 12
+  seq_tfmr_num_heads: 4
+  seq_tfmr_num_layers: 2
+  num_blocks: 4
+  coordinate_scaling: ${diffuser.r3.coordinate_scaling}

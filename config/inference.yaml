@@ -1,0 +1,40 @@
+# Configuration for inference on SE(3) diffusion experiments.
+defaults:
+  - data: oas_HL
+  - diffuser: oas_HL
+  - experiment: oas_HL
+  - model: oas_HL
+  - _self_
+
+inference:
+  name: null
+  gpu_id: null  # CUDA GPU to use
+  seed: 123
+  batch_size: 2
+
+  # Directory of software, weights, and outputs.
+  output_dir: ./inference/inference_outputs/
+
+  # Path to model weights.
+  weights_path: ./weights/igdiff.pth
+
+  diffusion:
+    # Number of steps.
+    num_t: 100
+    # Analogous to sampling temperature.
+    noise_scale: 0.1
+    # Final t.
+    min_t: 0.01
+
+  samples:
+    # Path to csv file with two columns, chain_lengths and num_batches.
+    # chain_lengths is a | seperated list of lengths for the chains to
+    # sample, and num_batches is the number of batches for that length.
+    # e.g
+    # chain_lengths, num_batches
+    # 128 | 50, 3
+    # 129 | 30, 1
+    # Would sample 3 batches of complexes with two chains of length 128 and 50,
+    # and 1 batch of a complex with two chains of length 129 and 30.
+    sample_length_csv:
+      ./inference/inference_length.csv

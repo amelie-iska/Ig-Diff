@@ -1,0 +1,58 @@
+# Experiment metadata
+name: baseline
+run_id: null
+
+# Training arguments
+log_freq: 1000
+batch_size: 256
+eval_batch_size: ${data.samples_per_eval_length}
+num_loader_workers: 5
+num_epoch: 500_000
+learning_rate: 0.0001
+max_squared_res: 500000
+prefetch_factor: 100
+use_gpu: True
+num_gpus: 2
+sample_mode: time_batch
+# In length_batch or cluster_length_batch mode, switches between uniform sampling of lengths
+#  vs using all data examples.
+length_batch_uniform: False
+
+# How many steps to checkpoint between.
+ckpt_freq: 10000
+# Take early checkpoint at step 100. Helpful for catching eval bugs early.
+early_ckpt: True
+
+# Checkpoint file to warm start from.
+warm_start: ./weights/best_weights.pth
+use_warm_start_conf: False
+# Load checkpoint optimizer state and trained_epochs / trained_steps values
+load_optimizer_state: False
+
+
+#training mode
+use_ddp : False
+
+# Logger level sets loguru log level for experiment
+logger_level: "INFO"
+
+# Loss weights.
+trans_loss_weight: 1.0
+rot_loss_weight: 0.5
+rot_loss_t_threshold: 0.2
+separate_rot_loss: True
+trans_x0_threshold: 1.0
+coordinate_scaling: ${diffuser.r3.coordinate_scaling}
+bb_atom_loss_weight: 1.0
+bb_atom_loss_t_filter: 0.25
+dist_mat_loss_weight: 1.0
+dist_mat_loss_t_filter: 0.25
+aux_loss_weight: 0.25
+
+# Evaluation.
+noise_scale: 1.0
+# Filled in during training.
+num_parameters: null
+
+# Enable dvclive logging:
+use_dvclive: True

@@ -1,0 +1,9 @@
+defaults:
+  - data: oas_HL
+  - diffuser: oas_HL
+  - experiment: oas_HL
+  - model: oas_HL
+  - _self_
+
+experiment:
+  training_cmd: "srun python"

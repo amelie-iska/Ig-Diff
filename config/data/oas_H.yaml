@@ -1,0 +1,21 @@
+dataset_dir: oas_H # Dataset directory relative to data directory
+untarred: False # Set to true if data is already untarred in dataset dir folder. Useful for debugging.
+filtering:
+  max_len: 160
+  min_len: 80
+  # Selects a subset of examples. Useful for debugging.
+  subset: null
+  allowed_oligomer: [monomeric]
+  max_helix_percent: 1.0
+  max_loop_percent: 0.98
+  min_beta_percent: -1.0
+  rog_quantile: 0.96
+clustering:
+  cluster_algo: cdhit
+  # Params passed to clustering algo as comma separated list, see data.cluster_funcs.cluster_fabs
+  cluster_params: 0.80 4 6
+min_t: 0.01
+samples_per_eval_length: 4
+num_eval_lengths: 10
+num_t: 100
+chain_break_jump: 50
