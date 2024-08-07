@@ -49,3 +49,4 @@ Thumbs.db
 *.wmv
 
 weights/igdiff.pth
+igdiff_samples/
