@@ -1,7 +1,11 @@
 # IgDiff
 This repository contains code for the paper "De novo antibody design with SE(3) diffusion". It is adapted from the original [FrameDiff code](https://github.com/jasonkyuyim/se3_diffusion).
 
-To download the model weights and dataset visit [the HuggingFace repo](https://huggingface.co/AmelieSchreiber/IgDiff/tree/main). 
+To download the model weights and dataset visit [the HuggingFace repo](https://huggingface.co/AmelieSchreiber/IgDiff/tree/main), or run 
+```bash
+git clone https://huggingface.co/AmelieSchreiber/IgDiff
+```
+Then move the weights into the weights folder, and the samples into the igdiff_samples folder. 
 
 ## Installation
 To install the package, run
